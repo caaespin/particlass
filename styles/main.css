@@ -101,6 +101,7 @@ button{
 	display: inline-block;
 	width: 58%;
 	text-align: center;
+	float: left;
 }
 table{
 	box-sizing: content-box;
@@ -145,6 +146,7 @@ td img{
 	display: inline-block;
     width: 40%;
     padding-top: 1.7vw;
+    float:right;
 }
 
 .content__box {
@@ -217,7 +219,7 @@ td img{
 	letter-spacing: 0.01em;
 	}
 
-@media screen and (max-width: 600px){
+@media screen and (orientation: portrait){
 	body{
 	}
 
@@ -225,6 +227,19 @@ td img{
 		font-size: 4.37vw;
 		line-height: 6.43vw;
 		letter-spacing: 0.014em;
+	}
+
+	a, button{
+		width: 88%;
+		padding: 3vw;
+		font-size: 4.9vw;
+		letter-spacing: 0.014em;
+		border-radius: 14px
+	}
+	a:hover, button:hover, nav a:hover{
+		transform: translateY(0);
+		background-image: none;
+		color: #222277;
 	}
 
 	nav{
@@ -259,7 +274,7 @@ td img{
 	}
 
 	.grid{
-		margin-top: 15vw;
+		margin: 15vw 0;
 	}
 	table{
 		border-radius: 0;
@@ -267,6 +282,7 @@ td img{
 	.grid, table{
 		width: 100%;
 		border: none;
+		float:none;
 	}
 
 	td{
@@ -276,15 +292,16 @@ td img{
 	td img{
 		width: 100%;
 	}
-
 	.content{
 		width: 100%;
+		float: none;
+	}
+	#activeContent{
 		background-color: #FFF;
 		padding-top: 5.91vw;
 		position: fixed;
 		top: 78.92vw;
-
-		float: none;
+		z-index: 2;
 	}
 	.content__box{
 		display: inline-block;
@@ -308,6 +325,7 @@ td img{
 	}
 
 	.instruction{
+		height: 15vw;
 		font-size: 4.3vw;
 		line-height: 5.9vw;
 	}
