@@ -31,9 +31,13 @@ function getSelectedParts(){
 	console.dir(post);
 	$.ajax({
 	  type: "POST",
+	  contentType: 'application/json',
 	  url: 'http://af423aef.ngrok.io/classify',
-	  data: post,
-	  dataType: 'JSON'
+	  data: JSON.stringify(post),
+      dataType: 'json',
+	  error: function(XMLHttpRequest, textStatus, errorThrown) {
+	     console.log(post);
+	  }
 	});
 }
 
