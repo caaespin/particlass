@@ -15,7 +15,6 @@ body{
 	margin: 0;
 	color: #232323;
 	font-family: 'Roboto-reg';
-	padding-bottom: 7vw;
 }
 section{
 	vertical-align: top;
@@ -63,6 +62,7 @@ p,h1,h2,h3,h4,h5,h6{
 }
 
 a, button {
+	box-sizing: content-box;
     display: inline-block;
     width: 19.61vw;
 	background-color: #FFF;
@@ -145,13 +145,13 @@ td img{
 .content{
 	display: inline-block;
     width: 38%;
-    padding-top: 1.7vw;
     float:right;
     margin-right: 4%;
 }
 
 .content__box {
     width: 100%;
+    margin-top: 1.7vw;
 }
 
 .templateImg{
@@ -161,6 +161,7 @@ td img{
 	border: solid 2px #43434C;
 	box-shadow: 0 4px 8px 0 rgba(61,37,137,0.5);
 	overflow: hidden;
+	vertical-align: middle;
 }
 .templateImg img{
 	width: 100%;
@@ -169,12 +170,14 @@ td img{
 	display: inline-block;
 	width: 50%;
 	margin-left: 3.3vw;
+	vertical-align: middle;
 }
 .instruction{
 	font-size:1vw;
 	line-height:1.85vw;
 	letter-spacing: 0.014em;
 	position: relative;
+	margin-bottom: 0.8vw;
 }
 .arrow{
 	width: 1.8vw;
@@ -203,6 +206,7 @@ td img{
 
 .projectInfo{
 	margin-top: 3.61vw;
+	margin-bottom: 7vw;
 }
 .infoBlock{
 	display: inline-block;
@@ -230,7 +234,7 @@ td img{
 	}
 
 	a, button{
-		width: 88%;
+		width: 77%;
 		padding: 3vw;
 		font-size: 4.9vw;
 		letter-spacing: 0.014em;
@@ -298,6 +302,7 @@ td img{
 	.content{
 		width: 100%;
 		float: none;
+		margin-right: 0;
 	}
 	#activeContent{
 		background-color: #FFF;
@@ -341,6 +346,7 @@ td img{
 	.templateInfo{
 		width: 100%;
 		margin: 0;
+		margin-top:5vw;
 	}
 	.score{
 		font-size: 4.9vw;
@@ -353,7 +359,8 @@ td img{
 	/*Project info*/
 	.projectInfo{
 		padding: 0 7.51vw;
-		padding-top: 16.2vw;
+		padding-top: 13.2vw;
+		margin-top: 0;
 	}
 	.infoBlock{
 		width: 100%;
@@ -369,5 +376,10 @@ td img{
 	.author{
 		font-size: 5.14vw;
 		margin-bottom: 7.2vw;
+	}
+	.learnMore{
+		display: block;
+		margin: 0 auto;
+		margin-top: 6.65vw;
 	}
 }

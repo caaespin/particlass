@@ -1,6 +1,7 @@
 function selectPart(){
 	$('td').click(function(){
-		$(this).addClass('selected');
+		$(this).toggleClass('selected');
+		$('#numSamples').html($('.selected').length-1);
 	});
 }
 
@@ -36,7 +37,7 @@ function mobileThings(){
   else{
 	console.log('unbind');
     $(window).off('scroll');
-    
+
     $('#activeContent').css({
         position: 'relative',
         top: 0,
