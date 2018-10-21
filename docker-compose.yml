@@ -22,9 +22,9 @@ services:
     networks:
     - esnet
     links:
-    - "${es_service}"
+    - "elasticsearch"
     restart: always
 
 networks:
   esnet:
-    external: true
+    driver: bridge
