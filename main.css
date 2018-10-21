@@ -1,0 +1,146 @@
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=windows-1252">
+    <link rel="alternate stylesheet" type="text/css" href="resource://gre-resources/plaintext.css"
+      title="Wrap Long Lines">
+  </head>
+  <body>
+    <pre>body{
+	margin: 0;
+}
+
+div{
+	box-sizing: content-box;
+}
+
+td, td {
+    padding: 7px;
+    text-align: left;
+}
+
+.content__box {
+    width: 100%;
+}
+
+p,h1,h2,h3,h4,h5,h6{
+	margin: 0;
+}
+
+a {
+    display: block;
+    color: black;
+    float: left;<br>width:19.61vw;
+padding:1.24vw;<br>size: 1.55vw;
+line-height:auto;
+letter-spacing: 3.61vw;
+    text-decoration: none;
+}
+
+table{
+	width: 58%;
+	float: left; 
+}
+
+.content{
+    width: 40%;
+	float: right; 
+}
+
+@media screen and (max-width: 600px){
+	body{
+	}
+
+	p{
+		font-size: 1.34vw;
+		line-height: 2.48vw;
+		letter-spacing: 1.44vw;
+
+	}
+
+	nav{
+		background-color: #FFF;
+		width: 100vw;
+
+		position: fixed;
+		top: 0;
+
+		box-shadow: 0 2px 3px 0 rgba(61,37,137,0.5);
+	}
+
+	.grid{
+		width: 100%;
+
+		float: none;
+	}
+
+	td{
+		width: 25vw;
+		height: 25vw;
+	}
+	td img{
+		width: 100%;
+	}
+
+	.content{
+		width: 100%;
+		background-color: #FFF;
+		padding-top: 5.91vw;
+		position: fixed;
+		top: 78.92vw;
+
+		float: none;
+	}
+	.content__box{
+		display: inline-block;
+		width: 46%;
+		vertical-align: top
+	}
+	.content__box:first-child{
+		padding-left: 3.755vw;
+	}
+	.content__box:nth-child(2){
+		padding-right: 3.755vw;
+	}
+	.content__box img{
+		width: 36vw;
+		border-radius: 1vw;
+		border: solid 2px #43434C;
+	}
+
+	.instruction{<br>	size:1.34vw;
+	line-height:2.48vw;
+	letter-spacing:1.44vw;
+
+	}
+	.score{
+		size:1.55vw;
+	line-height:2.06vw;
+	letter-spacing:1.44vw;
+	}<br>	.name title{<br>	size:1.96;<br>	line-height:auto;<br>	letter-spacing:1.03;<br>}
+	.scoreVal{
+	size:3.72vw;
+	line-height:auto
+	letter-spacing:0.21vw;
+	}
+
+	/*Project info*/
+	.projectInfo{
+		padding: 0 7.51vw;
+		padding-top: 16.2vw;
+	}
+	.label{
+		size:1.24vw;
+	line-height:auto;
+	letter-spacing:1.03vw;
+	}
+	.title{
+		font-size: 6.68vw;
+		margin-bottom: 4.88vw;
+	}
+	.author{
+		font-size: 5.14vw;
+		margin-bottom: 7.2vw;
+	}
+}</pre>
+  </body>
+</html>
