@@ -278,6 +278,8 @@ td img{
 	}
 	table{
 		border-radius: 0;
+		box-shadow: none;
+		margin-bottom: 3vw;
 	}
 	.grid, table{
 		width: 100%;
@@ -328,6 +330,7 @@ td img{
 		height: 15vw;
 		font-size: 4.3vw;
 		line-height: 5.9vw;
+		margin-left: 5vw;
 	}
 	.templateImg{
 		width: 34.88vw;
