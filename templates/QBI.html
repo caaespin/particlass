@@ -22,11 +22,11 @@
       <table cellspacing="0">
         <tbody>
           <tr>
-          {% for i,image in Image_list %}
+          {% for i,tuple in Image_list %}
             {% if i%4==0 and i!=0 %}
               </tr><tr>
             {% endif %}
-            <td> <img src="data:image/png;base64, {{image[0]}}"> </td>
+            <td> <img id='{{ tuple[0] }}' src="data:image/png;base64, {{tuple[1]}}"> </td>
           {% endfor %}
           </tr>
         </tbody>

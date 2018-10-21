@@ -13,24 +13,39 @@ source_folder = Path(os.getenv('QBI_SOURCE',
 
 # Prototype function to populate the dictionary based on the files in the
 # source folder:
+# def load_data():
+#     # Create the class doc:
+#     for class_avg in glob.glob(os.path.join(source_folder,"*.png")):
+#         class_folder = class_avg[:-8]
+#         Class_dict[class_folder] = [class_avg,[]]
+#         # Create the raw image doc for that class...
+#         for image_file in glob.glob(os.path.join(class_folder,"*.png")):
+#             image = open(image_file,"rb")
+#             contents = image.read()
+#             image.close()
+#             bin_image = b64encode(contents).decode()
+#             Class_dict[class_folder][1].append(image_file)
+#             Image_dict[image_file]=[bin_image]
+es = Elasticsearch(['http://localhost:9200'])
+
 def load_data():
-    # Create the class doc:
+    # Load raw images in Elasticsearch
     for class_avg in glob.glob(os.path.join(source_folder,"*.png")):
-        class_folder = class_avg[:-8]
-        Class_dict[class_folder] = [class_avg,[]]
-        # Create the raw image doc for that class...
+        class_folder = class_avg.replace("_avg.png","")
+        Class_dict[class_folder] = [class_avg, []]
         for image_file in glob.glob(os.path.join(class_folder,"*.png")):
             image = open(image_file,"rb")
             contents = image.read()
             image.close()
             bin_image = b64encode(contents).decode()
-            Class_dict[class_folder][1].append(image_file)
-            Image_dict[image_file]=[bin_image]
+            Class_dict[class_folder][1].append(image_file.replace('.png',''))
+            Image_dict[image_file]=[bin_image,[]]
+            es.index('images', 'doc', {"binary": bin_image, "labels":[]}, image_file.replace('.png', ''))
 
 load_data()
 
 app = Flask(__name__)
-es = Elasticsearch(['http://localhost:9200'])
+
 
 @app.route('/QBI')
 def QBI():
@@ -38,30 +53,12 @@ def QBI():
     class1 = choice([k for k in Class_dict.keys()] )
     shuffle(Class_dict[class1][1])
     List_names = Class_dict[class1][1][0:int(n)]
-    return render_template("QBI.html", Image_list = enumerate([Image_dict[x] for x in List_names]) )
-
-@app.route('/random/<n>')
-def randomize_n_images(n):
-    class1 = choice([k for k in Class_dict.keys()] )
-    shuffle(Class_dict[class1][1])
-    List_names = Class_dict[class1][1][0:int(n)]
-    print(List_names)
-    #entry={}
-    #for name in List_names:
-    #    entry[name]={
-    #        'binary':Image_dict[name],
-    #        'boolean':True
-    #    }
-    return render_template("index.html", List_names = List_names )
-
-@app.route('/test')
-def index():
-    return render_template("index.html", random_image = randomize_image())
-
-@app.route('/image/{image_id}', methods=['GET'])
-def get_image(image_id):
-    image_info = es.get('images', 'doc', image_id)['_source']
-    return image_info
+    return render_template("QBI.html",
+                           Image_list=enumerate(
+                               [(id_, es.get('images',
+                                             'doc',
+                                             id_)['_source']['binary']) for id_ in List_names])
+                           )
 
 
 @app.route('/classify', methods=['POST'])
