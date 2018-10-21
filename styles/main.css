@@ -168,8 +168,8 @@ td img{
 	margin-left: 3.3vw;
 }
 .instruction{
-	font-size:1.34vw;
-	line-height:2.48vw;
+	font-size:1vw;
+	line-height:1.85vw;
 	letter-spacing: 0.014em;
 	position: relative;
 }
@@ -181,8 +181,8 @@ td img{
 }
 .score{
 	font-family: 'Roboto-bold';
-	font-size:1.55vw;
-	line-height:2.06vw;
+	font-size:1.15vw;
+	line-height:1.54vw;
 	letter-spacing: 0.014em;
 }
 .name{
@@ -192,7 +192,7 @@ td img{
 }
 .scoreVal{
 	font-family: 'Roboto-bold';
-	font-size:3.72vw;
+	font-size:2.77vw;
 	line-height:auto
 	letter-spacing: 0.002em;
 	color: #222277;
