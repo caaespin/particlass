@@ -1,3 +1,11 @@
+body{
+	margin: 0;
+}
+
+div{
+	box-sizing: content-box;
+}
+
 td, td {
     padding: 7px;
     text-align: left;
@@ -5,8 +13,10 @@ td, td {
 
 .content__box {
     width: 100%;
-    float: right;
-    border: 3px solid;
+}
+
+p,h1,h2,h3,h4,h5,h6{
+	margin: 0;
 }
 
 a {
@@ -29,5 +39,88 @@ table{
 }
 
 @media screen and (max-width: 600px){
+	body{
+	}
 
+	p{
+		font-size: 4.37vw;
+		line-height: 6.43vw;
+		letter-spacing: 0.014em;
+	}
+
+	nav{
+		background-color: #FFF;
+		width: 100vw;
+
+		position: fixed;
+		top: 0;
+
+		box-shadow: 0 2px 3px 0 rgba(61,37,137,0.5);
+	}
+
+	.grid{
+		width: 100%;
+
+		float: none;
+	}
+
+	td{
+		width: 25vw;
+		height: 25vw;
+	}
+	td img{
+		width: 100%;
+	}
+
+	.content{
+		width: 100%;
+		background-color: #FFF;
+		padding-top: 5.91vw;
+		position: fixed;
+		top: 78.92vw;
+
+		float: none;
+	}
+	.content__box{
+		display: inline-block;
+		width: 46%;
+		vertical-align: top
+	}
+	.content__box:first-child{
+		padding-left: 3.755vw;
+	}
+	.content__box:nth-child(2){
+		padding-right: 3.755vw;
+	}
+	.content__box img{
+		width: 36vw;
+		border-radius: 1vw;
+		border: solid 2px #43434C;
+	}
+
+	.instruction{
+	}
+	.score{
+		font-size: 4.9vw;
+	}
+	.scoreVal{
+		font-size: 9.82vw;
+	}
+
+	/*Project info*/
+	.projectInfo{
+		padding: 0 7.51vw;
+		padding-top: 16.2vw;
+	}
+	.label{
+		display: none;
+	}
+	.title{
+		font-size: 6.68vw;
+		margin-bottom: 4.88vw;
+	}
+	.author{
+		font-size: 5.14vw;
+		margin-bottom: 7.2vw;
+	}
 }
