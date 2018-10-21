@@ -1,6 +1,7 @@
 @font-face{
 	font-family: 'Roboto-reg';
-	src: url('../assets/fonts/Roboto-Regular.ttf');
+	src: {{ url_for('static', filename='assets/fonts/Roboto-Regular.ttf') }};
+
 }
 @font-face{
 	font-family: 'Roboto-bold';

@@ -29,7 +29,7 @@ def load_data():
 
 load_data()
 
-app = Flask(__name__,static_url_path='/data')
+app = Flask(__name__)
 es = Elasticsearch(['http://localhost:9200'])
 
 @app.route('/QBI')
