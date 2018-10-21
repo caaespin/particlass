@@ -46,12 +46,12 @@ nav a{
 	text-transform: lowercase;
 	text-align: center;
 }
-nav a.selected{
+nav a.selectedN{
 	border: solid 2px #5D5DE8;
 	box-shadow: none;
 	pointer-events: none;
 }
-nav a.selected:hover{
+nav a.selectedN:hover{
 	transform: translateY(0);
 	background-image: none;
 	color: #222277;
@@ -274,7 +274,7 @@ td img{
 		background-image: none;
 		color: #222277;
 	}
-	nav a.selected{
+	nav a.selectedN{
 		border: none;
 	}
 

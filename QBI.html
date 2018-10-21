@@ -13,6 +13,10 @@
         selectPart();
         mobileThings();
 
+        $('#submit').click(function(){
+          console.log('boop');
+          getSelectedParts();
+        });
       };
 
       $(window).resize(function(){
@@ -22,7 +26,7 @@
     <div>
       <nav>
         <a href="www.google.com">Introduction</a>
-        <a href="www.google.com" class="selected">Pick the particle!</a>
+        <a href="www.google.com" class="selectedN">Pick the particle!</a>
         <a href="www.google.com">Sources</a>
       </nav>
     </div>
@@ -36,26 +40,26 @@
             <td>Line 4</td>
           </tr>
           <tr>
-            <td><img src="assets/square.png"></td>
-            <td> Image 1-16</td>
-            <td>Image 1-16</td>
-            <td> Image 1-16</td>
+            <td><img id="asdfdf0" src="assets/square.png"></td>
+            <td> <img id="adddddd1"></td>
+            <td><img id="adddddd2"></td>
+            <td> <img id="adddddd3"></td>
           </tr>
           <tr>
-            <td>Image 1-16</td>
-            <td>Image 1-16</td>
-            <td> Image 1-16</td>
-            <td> Image 1-16</td>
+            <td><img id="abddddd4"></td>
+            <td><img id="adddddd5"></td>
+            <td> <img id="adddddd6"></td>
+            <td> <img id="adddddd7"></td>
           </tr>
           <tr>
-            <td>Image 1-16</td>
-            <td>Image 1-16</td>
-            <td> Image 1-16</td>
-            <td> Image 1-16</td>
+            <td><img id="adddddd8"></td>
+            <td><img id="adddddd9"></td>
+            <td> <img id="adddddd10"></td>
+            <td> <img id="adddddd11"></td>
           </tr>
         </tbody>
       </table>
-      <button>Choose more samples!</button>
+      <button id="submit">Choose more samples!</button>
     </section>
     <section id="main">
       <section id="activeContent" class="content">
