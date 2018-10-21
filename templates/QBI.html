@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>QBI Hackathon</title>
+    <script src="/static/assets/jquery-3.3.1.min.js"></script>
+    <script src="/static/scripts.js"></script>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/main.css') }}">
+  </head>
+  <body>
+    <script type="text/javascript">
+      window.onload = function(){
+        selectPart();
+        mobileThings();
+
+        $('#submit').click(function(){
+          console.log('boop');
+          getSelectedParts();
+          location.reload();
+        });
+      };
+
+      $(window).resize(function(){
+        mobileThings()
+      });
+    </script>
+    <div>
+      <nav>
+        <a href="">Introduction</a>
+        <a href="" class="selectedN">Pick the particle!</a>
+        <a href="https://github.com/caaespin/particlass" target="_blank">Sources</a>
+      </nav>
+    </div>
+    <section class="grid">
+      <table cellspacing="0">
+        <tbody>
+        </tr>
+        {% for i,tuple in Image_list %}
+          {% if i%4==0 and i!=0 %}
+            </tr><tr>
+          {% endif %}
+          <td> <img id='{{ tuple[0] }}' src="data:image/png;base64, {{tuple[1]}}"> </td>
+        {% endfor %}
+        </tbody>
+      </table>
+      <button id="submit">Choose more samples!</button>
+    </section>
+    <section id="main">
+      <section id="activeContent" class="content">
+        <div class="content__box">
+            <p class="instruction"><img src="/static/assets/arrow.svg" class="arrow"> Pick the particles that match this template </p>
+          <div class="templateImg">
+            <img src="/static/assets/templateEx.png">
+          </div>
+          <div class="templateInfo">
+            <h3 class="score"># of samples</h3>
+            <h2 class="scoreVal" id="numSamples">0</h2>
+          </div>
+        </div><!--
+        --><div class="content__box">
+            <p class="instruction"><img src="/static/assets/arrow.svg" class="arrow"> Your average template</p>
+          <div class="templateImg">
+            <img src="/static/assets/templateEx.png">
+          </div>
+          <div class="templateInfo">
+            <h3 class="score">Accuracy</h3>
+            <h2 class="scoreVal">58%</h2>
+          </div>
+        </div>
+        <script type="text/javascript">
+
+          $(window).resize(function(){
+            if(window.innerHeight > window.innerWidth){
+              $('.arrow').attr('src', '/static/assets/arrowM.svg');
+              bindScroll();
+            }
+            else{
+              $('.arrow').attr('src', '/static/assets/arrow.svg');
+              $(window).scroll(function(){
+              });
+            }
+          });
+        </script>
+      </section>
+      <section class="content">
+        <div class="projectInfo">
+          <div class="infoBlock">
+            <p class="label">Project</p>
+            <h4 class="name title">GroEL</h4>
+          </div><!--
+          --><div class="infoBlock">
+            <p class="label">Biologist</p>
+          <h4 class="name author">John Doe</h4>
+          </div>
+          <p>This project was created to highlight the power of crowdsourcing to augment supervised learning. Here, we have chosen 2D classification of CryoEM particles as an example. Users are expected to...</p>
+        <a href="" class="learnMore">Learn more...</a>
+        </div>
+      </section>
+    </section>
+  </body>
+</html>
