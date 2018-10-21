@@ -63,13 +63,14 @@ def QBI():
 
 @app.route('/classify', methods=['POST'])
 def classify_image():
-    current_dict = request.args.get('images','')
-    for image_id, value in current_dict.items():
+    current_dict = request.get_json()
+    for image_id, selected in current_dict.items():
         # Retrieve the existing labels for that image using ES:
         image_info = es.get('images', 'doc', image_id)
         # Create
-        image_info['_source']['classifications']
-    return "Image Classify"
+        image_info['_source']['labels'].append(selected)
+        es.index('images', 'doc', image_info['_source'], image_id)
+    return "success"
 
 
 # Once the user clicks "Submit", we get these values back,
