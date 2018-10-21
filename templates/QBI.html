@@ -3,9 +3,14 @@
   <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <title>QBI Hackathon</title>
+    <script src="/static/assets/jquery-3.3.1.min.js"></script>
+    <script src="/static/scripts.js"></script>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/main.css') }}">
   </head>
   <body>
+    <script type="text/javascript">
+      window.onload = selectPart;
+    </script>
     <div>
       <nav>
         <a href="www.google.com">Introduction</a>
@@ -16,12 +21,6 @@
     <section class="grid">
       <table cellspacing="0">
         <tbody>
-          <tr>
-            <td>Line 1</td>
-            <td>Line 2</td>
-            <td>Line 3</td>
-            <td>Line 4</td>
-          </tr>
           <tr>
           {% for i,image in Image_list %}
             {% if i%4==0 and i!=0 %}
@@ -34,27 +33,48 @@
       </table>
       <button>Choose more samples!</button>
     </section>
-      <section class="content">
+    <section id="main">
+      <section id="activeContent" class="content">
         <div class="content__box">
+            <p class="instruction"><img src="/static/assets/arrow.svg" class="arrow"> Pick the particle that matches this template </p>
           <div class="templateImg">
             <img src="/static/assets/templateEx.png">
           </div>
           <div class="templateInfo">
-            <p class="instruction"> Pick the particle that matches this template </p>
-            <h3 class="score">Number of chosen samples</h3>
+            <h3 class="score"># of samples</h3>
             <h2 class="scoreVal">3</h2>
           </div>
         </div><!--
         --><div class="content__box">
+            <p class="instruction"><img src="/static/assets/arrow.svg" class="arrow"> Your average template</p>
           <div class="templateImg">
             <img src="/static/assets/templateEx.png">
           </div>
           <div class="templateInfo">
-            <p class="instruction"> Your average template</p>
             <h3 class="score">Accuracy</h3>
             <h2 class="scoreVal">58%</h2>
           </div>
         </div>
+        <script type="text/javascript">
+          pos = 365;
+          $(window).scroll(function (e) {
+              if ($(window).scrollTop() > pos) {
+                  $('#activeContent').css({
+                      position: 'relative',
+                      top: 0,
+                      bottom: 'auto'
+                  });
+              } else {
+                  $('#activeContent').css({
+                      position: 'fixed',
+                      top: 'auto',
+                      bottom: 0
+                  });
+              }
+          });
+        </script>
+      </section>
+      <section class="content">
         <div class="projectInfo">
           <div class="infoBlock">
             <p class="label">Project</p>
@@ -68,5 +88,6 @@
         </div>
         <a href="" class="learnMore">Learn more...</a>
       </section>
+    </section>
   </body>
 </html>

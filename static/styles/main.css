@@ -1,21 +1,21 @@
 @font-face{
 	font-family: 'Roboto-reg';
-	src: {{ url_for('static', filename='assets/fonts/Roboto-Regular.ttf') }};
-
+	src: url('/static/assets/fonts/Roboto-Regular.ttf');
 }
 @font-face{
 	font-family: 'Roboto-bold';
-	src: url('../assets/fonts/Roboto-Bold.ttf');
+	src: url('/static/assets/fonts/Roboto-Bold.ttf');
 }
 @font-face{
 	font-family: 'Roboto-med';
-	src: url('../assets/fonts/Roboto-Medium.ttf');
+	src: url('/static/assets/fonts/Roboto-Medium.ttf');
 }
 
 body{
 	margin: 0;
 	color: #232323;
 	font-family: 'Roboto-reg';
+	padding-bottom: 7vw;
 }
 section{
 	vertical-align: top;
@@ -25,8 +25,8 @@ div{
 }
 
 p{
-	font-size: 1.34vw;
-	line-height: 2.48vw;
+	font-size: 1vw;
+	line-height: 1.85vw;
 	letter-spacing: 0.014em;
 
 }
@@ -35,7 +35,7 @@ nav{
 	display: flex;
 	justify-content: space-around;
 	background-color: #FFF;
-	width: 100vw;
+	width: 100%;
 	margin: 2vw 0;
 }
 
@@ -50,30 +50,12 @@ nav a{
 nav a.selected{
 	border: solid 2px #5D5DE8;
 	box-shadow: none;
+	pointer-events: none;
 }
-
-td, td {
-    padding: 7px;
-    text-align: left;
-    position: relative;
-}
-td:hover::after, td.selected::after{
-	content: ' ';
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	background-image: linear-gradient(50deg, #36B37A, #1D118E);
-	opacity: 0.5;
-	cursor: pointer;
-}
-td.selected::after{
-	opacity: 0.7;
-}
-
-.content__box {
-    width: 100%;
+nav a.selected:hover{
+	transform: translateY(0);
+	background-image: none;
+	color: #222277;
 }
 
 p,h1,h2,h3,h4,h5,h6{
@@ -87,13 +69,27 @@ a, button {
 	padding: 1.24vw;
 	border-radius: 0.77vw;
 	box-shadow: 0 4px 8px 0 rgba(61,37,137,0.5);
+	cursor: pointer;
 
-	color: #232323;
+	color: #222277;
 	font-family: 'Roboto-med';
 	font-size: 1.55vw;
 	letter-spacing: 0.053em;
 	text-align: center;
     text-decoration: none;
+
+    transform: translateY(0);
+    transition: 0.2s ease-in-out;
+}
+
+a:hover, button:hover{
+	background-image: linear-gradient(90deg, #36B37A, #1D118E);
+	color: #FFF;
+    transform: translateY(-5%);
+}
+
+button:focus{
+	outline: none;
 }
 
 button{
@@ -105,13 +101,16 @@ button{
 	display: inline-block;
 	width: 58%;
 	text-align: center;
+	float: left;
 }
 table{
 	box-sizing: content-box;
 	display: inline-block;
-	border-radius: 18px;
-	overflow: hidden;
 	border: solid 2px #43434C;
+	border-radius: 18px;
+	border-spacing: 0;
+	border-collapse: collapse;
+	overflow: hidden;
 	width: 40vw;
 	margin-bottom: 2.3vw;
 	box-shadow: 0 4px 8px 0 rgba(61,37,137,0.5);
@@ -119,12 +118,39 @@ table{
 td{
 	width: 10vw;
 	height: 10vw;
+    position: relative;
+    overflow: hidden;
+}
+td:hover::after, td.selected::after{
+	content: ' ';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-image: linear-gradient(50deg, #36B37A, #1D118E);
+	opacity: 0.5;
+	cursor: pointer;
+}
+td.selected::after{
+	opacity: 0.8;
+}
+td img{
+	width: 102%;
+	position: absolute;
+	top: -1px;
+	left: -1px;
 }
 
 .content{
 	display: inline-block;
     width: 40%;
     padding-top: 1.7vw;
+    float:right;
+}
+
+.content__box {
+    width: 100%;
 }
 
 .templateImg{
@@ -144,25 +170,31 @@ td{
 	margin-left: 3.3vw;
 }
 .instruction{
-	font-size:1.34vw;
-	line-height:2.48vw;
+	font-size:1vw;
+	line-height:1.85vw;
 	letter-spacing: 0.014em;
-
+	position: relative;
+}
+.arrow{
+	width: 1.8vw;
+	position: absolute;
+	top: 0.76vw;
+	left: -3vw;
 }
 .score{
 	font-family: 'Roboto-bold';
-	font-size:1.55vw;
-	line-height:2.06vw;
+	font-size:1.15vw;
+	line-height:1.54vw;
 	letter-spacing: 0.014em;
 }
 .name{
-	font-size:1.96vw;
+	font-size:1.46vw;
 	line-height:auto;
 	letter-spacing:0.01em
 }
 .scoreVal{
 	font-family: 'Roboto-bold';
-	font-size:3.72vw;
+	font-size:2.77vw;
 	line-height:auto
 	letter-spacing: 0.002em;
 	color: #222277;
@@ -180,8 +212,14 @@ td{
 .learnMore{
 	margin-top: 1.65vw;
 }
+.label{
+	display: none;
+	font-size: 0.92vw;
+	line-height: auto;
+	letter-spacing: 0.01em;
+	}
 
-@media screen and (max-width: 600px){
+@media screen and (orientation: portrait){
 	body{
 	}
 
@@ -189,6 +227,19 @@ td{
 		font-size: 4.37vw;
 		line-height: 6.43vw;
 		letter-spacing: 0.014em;
+	}
+
+	a, button{
+		width: 88%;
+		padding: 3vw;
+		font-size: 4.9vw;
+		letter-spacing: 0.014em;
+		border-radius: 14px
+	}
+	a:hover, button:hover, nav a:hover{
+		transform: translateY(0);
+		background-image: none;
+		color: #222277;
 	}
 
 	nav{
@@ -213,10 +264,25 @@ td{
 		text-align: center;
 		box-shadow: none;
 	}
+	nav a:hover{
+		transform: translateY(0);
+		background-image: none;
+		color: #222277;
+	}
+	nav a.selected{
+		border: none;
+	}
 
+	.grid{
+		margin: 15vw 0;
+	}
+	table{
+		border-radius: 0;
+	}
 	.grid, table{
 		width: 100%;
 		border: none;
+		float:none;
 	}
 
 	td{
@@ -226,20 +292,21 @@ td{
 	td img{
 		width: 100%;
 	}
-
 	.content{
 		width: 100%;
+		float: none;
+	}
+	#activeContent{
 		background-color: #FFF;
 		padding-top: 5.91vw;
 		position: fixed;
 		top: 78.92vw;
-
-		float: none;
+		z-index: 2;
 	}
 	.content__box{
 		display: inline-block;
 		width: 46%;
-		vertical-align: top
+		vertical-align: bottom;
 	}
 	.content__box:first-child{
 		padding-left: 3.755vw;
@@ -247,16 +314,32 @@ td{
 	.content__box:nth-child(2){
 		padding-right: 3.755vw;
 	}
-	.content__box img{
+	.templateImg{
 		width: 36vw;
 		border-radius: 1vw;
 		border: solid 2px #43434C;
 	}
+	.arrow{
+		width: 3vw;
+		left: -1vw;
+	}
 
 	.instruction{
+		height: 15vw;
+		font-size: 4.3vw;
+		line-height: 5.9vw;
+	}
+	.templateImg{
+		width: 34.88vw;
+		height: 34.88vw;
+	}
+	.templateInfo{
+		width: 100%;
+		margin: 0;
 	}
 	.score{
 		font-size: 4.9vw;
+		line-height: 6vw;
 	}
 	.scoreVal{
 		font-size: 9.82vw;
