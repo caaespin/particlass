@@ -6,8 +6,8 @@ div{
 	box-sizing: content-box;
 }
 
-td, td {
-    padding: 7px;
+td {
+    padding: 0;
     text-align: left;
 }
 
@@ -34,6 +34,8 @@ a {
 table{
 	width: 58%;
 	float: left; 
+	border-radius: 18px;
+	border: solid 2px #43434C;
 }
 
 .content{
