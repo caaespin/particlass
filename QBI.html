@@ -9,7 +9,15 @@
   </head>
   <body>
     <script type="text/javascript">
-      window.onload = selectPart;
+      window.onload = function(){
+        selectPart();
+        mobileThings();
+
+      };
+
+      $(window).resize(function(){
+        mobileThings()
+      });
     </script>
     <div>
       <nav>
@@ -72,21 +80,17 @@
           </div>
         </div>
         <script type="text/javascript">
-          pos = 365;
-          $(window).scroll(function (e) {
-              if ($(window).scrollTop() > pos) {
-                  $('#activeContent').css({
-                      position: 'relative',
-                      top: 0,
-                      bottom: 'auto'
-                  });
-              } else {
-                  $('#activeContent').css({
-                      position: 'fixed',
-                      top: 'auto',
-                      bottom: 0
-                  });
-              }
+
+          $(window).resize(function(){
+            if(window.innerHeight > window.innerWidth){
+              $('.arrow').attr('src', 'assets/arrowM.svg');
+              bindScroll();
+            }
+            else{
+              $('.arrow').attr('src', 'assets/arrow.svg');
+              $(window).scroll(function(){
+              });
+            }
           });
         </script>
       </section>

@@ -144,9 +144,10 @@ td img{
 
 .content{
 	display: inline-block;
-    width: 40%;
+    width: 38%;
     padding-top: 1.7vw;
     float:right;
+    margin-right: 4%;
 }
 
 .content__box {
@@ -213,11 +214,10 @@ td img{
 	margin-top: 1.65vw;
 }
 .label{
-	display: none;
 	font-size: 0.92vw;
 	line-height: auto;
 	letter-spacing: 0.01em;
-	}
+}
 
 @media screen and (orientation: portrait){
 	body{
@@ -234,7 +234,8 @@ td img{
 		padding: 3vw;
 		font-size: 4.9vw;
 		letter-spacing: 0.014em;
-		border-radius: 14px
+		border-radius: 14px;
+		margin: 0 auto;
 	}
 	a:hover, button:hover, nav a:hover{
 		transform: translateY(0);
@@ -323,11 +324,12 @@ td img{
 	}
 	.arrow{
 		width: 3vw;
-		left: -1vw;
+		top: 6vw;
+		left: -5vw;
 	}
 
 	.instruction{
-		height: 15vw;
+		height: 21vw;
 		font-size: 4.3vw;
 		line-height: 5.9vw;
 		margin-left: 5vw;
@@ -353,12 +355,16 @@ td img{
 		padding: 0 7.51vw;
 		padding-top: 16.2vw;
 	}
+	.infoBlock{
+		width: 100%;
+		margin: 0;
+	}
 	.label{
 		display: none;
 	}
 	.title{
 		font-size: 6.68vw;
-		margin-bottom: 4.88vw;
+		margin-bottom: 3.6vw;
 	}
 	.author{
 		font-size: 5.14vw;
