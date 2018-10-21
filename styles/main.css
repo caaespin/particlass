@@ -25,8 +25,8 @@ div{
 }
 
 p{
-	font-size: 1.34vw;
-	line-height: 2.48vw;
+	font-size: 1vw;
+	line-height: 1.85vw;
 	letter-spacing: 0.014em;
 
 }
@@ -186,7 +186,7 @@ td img{
 	letter-spacing: 0.014em;
 }
 .name{
-	font-size:1.96vw;
+	font-size:1.46vw;
 	line-height:auto;
 	letter-spacing:0.01em
 }
@@ -210,8 +210,14 @@ td img{
 .learnMore{
 	margin-top: 1.65vw;
 }
+.label{
+	display: none;
+	font-size: 0.92vw;
+	line-height: auto;
+	letter-spacing: 0.01em;
+	}
 
-@media screen and (orientation:portrait){
+@media screen and (max-width: 600px){
 	body{
 	}
 
@@ -219,19 +225,6 @@ td img{
 		font-size: 4.37vw;
 		line-height: 6.43vw;
 		letter-spacing: 0.014em;
-	}
-
-	a, button{
-		width: 88%;
-		padding: 3vw;
-		font-size: 4.9vw;
-		letter-spacing: 0.014em;
-		border-radius: 14px
-	}
-	a:hover, button:hover, nav a:hover{
-		transform: translateY(0);
-		background-image: none;
-		color: #222277;
 	}
 
 	nav{
@@ -256,18 +249,20 @@ td img{
 		text-align: center;
 		box-shadow: none;
 	}
+	nav a:hover{
+		transform: translateY(0);
+		background-image: none;
+		color: #222277;
+	}
 	nav a.selected{
 		border: none;
 	}
 
 	.grid{
 		margin-top: 15vw;
-		margin-bottom: 70vw;
 	}
 	table{
 		border-radius: 0;
-		box-shadow: none;
-		margin-bottom: 3vw;
 	}
 	.grid, table{
 		width: 100%;
