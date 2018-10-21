@@ -80,16 +80,5 @@ def classify_image():
 
 @app.route('/images')
 def get_images():
-    # for s in scan(es, index='images', doc_type='doc'):
-    #     print(fail'S is: {s}')
     images = {image['_id']: image['_source'] for image in scan(es, index='images', doc_type='doc')}
     return json.dumps(images)
-
-
-# Once the user clicks "Submit", we get these values back,
-# and update the dictionary:
-def update_entries(image_list,bool_list):
-    for image, value in zip(image_list,bool_list):
-        print("Incomplete")
-        #image_info = es.get('images', 'doc', image_id)
-        #image_info['_source']
