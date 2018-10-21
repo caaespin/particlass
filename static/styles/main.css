@@ -15,7 +15,6 @@ body{
 	margin: 0;
 	color: #232323;
 	font-family: 'Roboto-reg';
-	padding-bottom: 7vw;
 }
 section{
 	vertical-align: top;
@@ -63,6 +62,7 @@ p,h1,h2,h3,h4,h5,h6{
 }
 
 a, button {
+	box-sizing: content-box;
     display: inline-block;
     width: 19.61vw;
 	background-color: #FFF;
@@ -73,8 +73,8 @@ a, button {
 
 	color: #222277;
 	font-family: 'Roboto-med';
-	font-size: 1.55vw;
-	letter-spacing: 0.053em;
+	font-size: 1.15vw;
+	letter-spacing: 0.035em;
 	text-align: center;
     text-decoration: none;
 
@@ -144,13 +144,14 @@ td img{
 
 .content{
 	display: inline-block;
-    width: 40%;
-    padding-top: 1.7vw;
+    width: 38%;
     float:right;
+    margin-right: 4%;
 }
 
 .content__box {
     width: 100%;
+    margin-top: 1.7vw;
 }
 
 .templateImg{
@@ -160,6 +161,7 @@ td img{
 	border: solid 2px #43434C;
 	box-shadow: 0 4px 8px 0 rgba(61,37,137,0.5);
 	overflow: hidden;
+	vertical-align: middle;
 }
 .templateImg img{
 	width: 100%;
@@ -168,12 +170,14 @@ td img{
 	display: inline-block;
 	width: 50%;
 	margin-left: 3.3vw;
+	vertical-align: middle;
 }
 .instruction{
 	font-size:1vw;
 	line-height:1.85vw;
 	letter-spacing: 0.014em;
 	position: relative;
+	margin-bottom: 0.8vw;
 }
 .arrow{
 	width: 1.8vw;
@@ -202,6 +206,7 @@ td img{
 
 .projectInfo{
 	margin-top: 3.61vw;
+	margin-bottom: 7vw;
 }
 .infoBlock{
 	display: inline-block;
@@ -213,11 +218,10 @@ td img{
 	margin-top: 1.65vw;
 }
 .label{
-	display: none;
 	font-size: 0.92vw;
 	line-height: auto;
 	letter-spacing: 0.01em;
-	}
+}
 
 @media screen and (orientation: portrait){
 	body{
@@ -230,11 +234,12 @@ td img{
 	}
 
 	a, button{
-		width: 88%;
+		width: 77%;
 		padding: 3vw;
 		font-size: 4.9vw;
 		letter-spacing: 0.014em;
-		border-radius: 14px
+		border-radius: 14px;
+		margin: 0 auto;
 	}
 	a:hover, button:hover, nav a:hover{
 		transform: translateY(0);
@@ -278,6 +283,8 @@ td img{
 	}
 	table{
 		border-radius: 0;
+		box-shadow: none;
+		margin-bottom: 3vw;
 	}
 	.grid, table{
 		width: 100%;
@@ -295,6 +302,7 @@ td img{
 	.content{
 		width: 100%;
 		float: none;
+		margin-right: 0;
 	}
 	#activeContent{
 		background-color: #FFF;
@@ -321,13 +329,15 @@ td img{
 	}
 	.arrow{
 		width: 3vw;
-		left: -1vw;
+		top: 6vw;
+		left: -5vw;
 	}
 
 	.instruction{
-		height: 15vw;
+		height: 21vw;
 		font-size: 4.3vw;
 		line-height: 5.9vw;
+		margin-left: 5vw;
 	}
 	.templateImg{
 		width: 34.88vw;
@@ -336,6 +346,7 @@ td img{
 	.templateInfo{
 		width: 100%;
 		margin: 0;
+		margin-top:5vw;
 	}
 	.score{
 		font-size: 4.9vw;
@@ -348,17 +359,27 @@ td img{
 	/*Project info*/
 	.projectInfo{
 		padding: 0 7.51vw;
-		padding-top: 16.2vw;
+		padding-top: 13.2vw;
+		margin-top: 0;
+	}
+	.infoBlock{
+		width: 100%;
+		margin: 0;
 	}
 	.label{
 		display: none;
 	}
 	.title{
 		font-size: 6.68vw;
-		margin-bottom: 4.88vw;
+		margin-bottom: 3.6vw;
 	}
 	.author{
 		font-size: 5.14vw;
 		margin-bottom: 7.2vw;
+	}
+	.learnMore{
+		display: block;
+		margin: 0 auto;
+		margin-top: 6.65vw;
 	}
 }
