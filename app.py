@@ -80,6 +80,8 @@ def classify_image():
 
 @app.route('/images')
 def get_images():
+    # for s in scan(es, index='images', doc_type='doc'):
+    #     print(fail'S is: {s}')
     images = {image['_id']: image['_source'] for image in scan(es, index='images', doc_type='doc')}
     return json.dumps(images)
 
