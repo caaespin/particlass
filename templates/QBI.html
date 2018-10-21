@@ -9,7 +9,15 @@
   </head>
   <body>
     <script type="text/javascript">
-      window.onload = selectPart;
+      window.onload = function(){
+        selectPart();
+        mobileThings();
+
+      };
+
+      $(window).resize(function(){
+        mobileThings()
+      });
     </script>
     <div>
       <nav>
@@ -22,12 +30,12 @@
       <table cellspacing="0">
         <tbody>
           <tr>
-          {% for i,tuple in Image_list %}
-            {% if i%4==0 and i!=0 %}
-              </tr><tr>
-            {% endif %}
-            <td> <img id='{{ tuple[0] }}' src="data:image/png;base64, {{tuple[1]}}"> </td>
-          {% endfor %}
+            {% for i,tuple in Image_list %}
+              {% if i%4==0 and i!=0 %}
+                </tr><tr>
+              {% endif %}
+              <td> <img id='{{ tuple[0] }}' src="data:image/png;base64, {{tuple[1]}}"> </td>
+            {% endfor %}
           </tr>
         </tbody>
       </table>
@@ -36,17 +44,17 @@
     <section id="main">
       <section id="activeContent" class="content">
         <div class="content__box">
-            <p class="instruction"><img src="/static/assets/arrow.svg" class="arrow"> Pick the particle that matches this template </p>
+            <p class="instruction"><img src="assets/arrow.svg" class="arrow"> Pick the particles that match this template </p>
           <div class="templateImg">
             <img src="/static/assets/templateEx.png">
           </div>
           <div class="templateInfo">
             <h3 class="score"># of samples</h3>
-            <h2 class="scoreVal">3</h2>
+            <h2 class="scoreVal" id="numSamples">0</h2>
           </div>
         </div><!--
         --><div class="content__box">
-            <p class="instruction"><img src="/static/assets/arrow.svg" class="arrow"> Your average template</p>
+            <p class="instruction"><img src="assets/arrow.svg" class="arrow"> Your average template</p>
           <div class="templateImg">
             <img src="/static/assets/templateEx.png">
           </div>
@@ -56,21 +64,17 @@
           </div>
         </div>
         <script type="text/javascript">
-          pos = 365;
-          $(window).scroll(function (e) {
-              if ($(window).scrollTop() > pos) {
-                  $('#activeContent').css({
-                      position: 'relative',
-                      top: 0,
-                      bottom: 'auto'
-                  });
-              } else {
-                  $('#activeContent').css({
-                      position: 'fixed',
-                      top: 'auto',
-                      bottom: 0
-                  });
-              }
+
+          $(window).resize(function(){
+            if(window.innerHeight > window.innerWidth){
+              $('.arrow').attr('src', '/static/assets/arrowM.svg');
+              bindScroll();
+            }
+            else{
+              $('.arrow').attr('src', '/static/assets/arrow.svg');
+              $(window).scroll(function(){
+              });
+            }
           });
         </script>
       </section>
@@ -85,8 +89,8 @@
           <h4 class="name author">John Doe</h4>
           </div>
           <p>This project was created to..... Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. rit in vulputate velit esse molestie con</p>
-        </div>
         <a href="" class="learnMore">Learn more...</a>
+        </div>
       </section>
     </section>
   </body>
