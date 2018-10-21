@@ -49,7 +49,8 @@
       </table>
       <button>Choose more samples!</button>
     </section>
-      <section class="content">
+    <section id="main">
+      <section id="activeContent" class="content">
         <div class="content__box">
             <p class="instruction"><img src="assets/arrow.svg" class="arrow"> Pick the particle that matches this template </p>
           <div class="templateImg">
@@ -70,6 +71,26 @@
             <h2 class="scoreVal">58%</h2>
           </div>
         </div>
+        <script type="text/javascript">
+          pos = 365;
+          $(window).scroll(function (e) {
+              if ($(window).scrollTop() > pos) {
+                  $('#activeContent').css({
+                      position: 'relative',
+                      top: 0,
+                      bottom: 'auto'
+                  });
+              } else {
+                  $('#activeContent').css({
+                      position: 'fixed',
+                      top: 'auto',
+                      bottom: 0
+                  });
+              }
+          });
+        </script>
+      </section>
+      <section class="content">
         <div class="projectInfo"> 
           <div class="infoBlock">
             <p class="label">Project</p>
@@ -83,5 +104,6 @@
         </div>
         <a href="" class="learnMore">Learn more...</a>
       </section>
+    </section>
   </body>
 </html>

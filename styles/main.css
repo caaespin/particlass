@@ -101,6 +101,7 @@ button{
 	display: inline-block;
 	width: 58%;
 	text-align: center;
+	float: left;
 }
 table{
 	box-sizing: content-box;
@@ -145,6 +146,7 @@ td img{
 	display: inline-block;
     width: 40%;
     padding-top: 1.7vw;
+    float:right;
 }
 
 .content__box {
@@ -261,8 +263,7 @@ td img{
 	}
 
 	.grid{
-		margin-top: 15vw;
-		margin-bottom: 70vw;
+		margin: 15vw 0;
 	}
 	table{
 		border-radius: 0;
@@ -272,6 +273,7 @@ td img{
 	.grid, table{
 		width: 100%;
 		border: none;
+		float:none;
 	}
 
 	td{
@@ -281,15 +283,16 @@ td img{
 	td img{
 		width: 100%;
 	}
-
 	.content{
 		width: 100%;
+		float: none;
+	}
+	#activeContent{
 		background-color: #FFF;
 		padding-top: 5.91vw;
 		position: fixed;
 		top: 78.92vw;
-
-		float: none;
+		z-index: 2;
 	}
 	.content__box{
 		display: inline-block;
@@ -313,6 +316,7 @@ td img{
 	}
 
 	.instruction{
+		height: 15vw;
 		font-size: 4.3vw;
 		line-height: 5.9vw;
 	}
