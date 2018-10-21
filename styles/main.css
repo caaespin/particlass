@@ -6,8 +6,8 @@ div{
 	box-sizing: content-box;
 }
 
-td {
-    padding: 0;
+td, td {
+    padding: 7px;
     text-align: left;
 }
 
@@ -34,8 +34,6 @@ a {
 table{
 	width: 58%;
 	float: left; 
-	border-radius: 18px;
-	border: solid 2px #43434C;
 }
 
 .content{
@@ -49,6 +47,7 @@ table{
 	p{
 		font-size: 1.34vw;
 		line-height: 2.48vw;
+		letter-spacing: 0.014em;
 
 	}
 
@@ -61,19 +60,23 @@ table{
 	.instruction{
 	font-size:1.34vw;
 	line-height:2.48vw;
+	letter-spacing: 0.014em;
 
 	}
 	.score{
 	font-size:1.55vw;
 	line-height:2.06vw;
+	letter-spacing: 0.014em;
 	}
 	.name{
 		font-size:1.96vw;
 		line-height:auto;
+		letter-spacing:0.01em
 	}
 	.scoreVal{
 	font-size:3.72vw;
 	line-height:auto
+	letter-spacing: 0.002em;
 	}
 
 	/*Project info*/
@@ -84,6 +87,7 @@ table{
 	.label{
 	font-size:1.24vw;
 	line-height:auto;
+	letter-spacing: 0.01em;
 	}
 
 @media screen and (max-width: 600px){
