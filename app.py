@@ -32,17 +32,26 @@ load_data()
 app = Flask(__name__,static_url_path='/data')
 es = Elasticsearch(['http://localhost:9200'])
 
+@app.route('/QBI')
+def QBI():
+    n=16
+    class1 = choice([k for k in Class_dict.keys()] )
+    shuffle(Class_dict[class1][1])
+    List_names = Class_dict[class1][1][0:int(n)]
+    return render_template("QBI.html", Image_list = enumerate([Image_dict[x] for x in List_names]) )
+
 @app.route('/random/<n>')
 def randomize_n_images(n):
     class1 = choice([k for k in Class_dict.keys()] )
     shuffle(Class_dict[class1][1])
     List_names = Class_dict[class1][1][0:int(n)]
-    entry={}
-    for name in List_names:
-        entry[name]={
-            'binary':Image_dict[name],
-            'boolean':True
-        }
+    print(List_names)
+    #entry={}
+    #for name in List_names:
+    #    entry[name]={
+    #        'binary':Image_dict[name],
+    #        'boolean':True
+    #    }
     return render_template("index.html", List_names = List_names )
 
 @app.route('/test')
@@ -64,8 +73,6 @@ def classify_image():
         # Create
         image_info['_source']['classifications']
     return "Image Classify"
-
-
 
 
 # Once the user clicks "Submit", we get these values back,

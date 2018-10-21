@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>QBI Hackathon</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/main.css') }}">
+  </head>
+  <body>
+    <div>
+      <nav>
+        <a href="www.google.com">Introduction</a>
+        <a href="www.google.com" class="selected">Pick the particle!</a>
+        <a href="www.google.com">Sources</a>
+      </nav>
+    </div>
+    <section class="grid">
+      <table cellspacing="0">
+        <tbody>
+          <tr>
+            <td>Line 1</td>
+            <td>Line 2</td>
+            <td>Line 3</td>
+            <td>Line 4</td>
+          </tr>
+          <tr>
+          {% for i,image in Image_list %}
+            {% if i%4==0 and i!=0 %}
+              </tr><tr>
+            {% endif %}
+            <td> <img src="data:image/png;base64, {{image[0]}}"> </td>
+          {% endfor %}
+          </tr>
+        </tbody>
+      </table>
+      <button>Choose more samples!</button>
+    </section>
+      <section class="content">
+        <div class="content__box">
+          <div class="templateImg">
+            <img src="assets/templateEx.png">
+          </div>
+          <div class="templateInfo">
+            <p class="instruction"> Pick the particle that matches this template </p>
+            <h3 class="score">Number of chosen samples</h3>
+            <h2 class="scoreVal">3</h2>
+          </div>
+        </div><!--
+        --><div class="content__box">
+          <div class="templateImg">
+            <img src="assets/templateEx.png">
+          </div>
+          <div class="templateInfo">
+            <p class="instruction"> Your average template</p>
+            <h3 class="score">Accuracy</h3>
+            <h2 class="scoreVal">58%</h2>
+          </div>
+        </div>
+        <div class="projectInfo">
+          <div class="infoBlock">
+            <p class="label">Project</p>
+            <h4 class="name title">cryo-EM 13423</h4>
+          </div><!--
+          --><div class="infoBlock">
+            <p class="label">Biologist</p>
+          <h4 class="name author">John Doe</h4>
+          </div>
+          <p>This project was created to..... Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. rit in vulputate velit esse molestie con</p>
+        </div>
+        <a href="" class="learnMore">Learn more...</a>
+      </section>
+  </body>
+</html>
