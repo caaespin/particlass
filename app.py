@@ -1,6 +1,9 @@
 from flask import Flask, request, render_template
+from flask_cors import CORS
 from elasticsearch import Elasticsearch
+from elasticsearch.helpers import scan
 import glob
+import json
 import os
 from pathlib import Path
 from random import choice,shuffle
@@ -45,6 +48,7 @@ def load_data():
 load_data()
 
 app = Flask(__name__)
+CORS(app)
 
 
 @app.route('/QBI')
@@ -64,6 +68,7 @@ def QBI():
 @app.route('/classify', methods=['POST'])
 def classify_image():
     current_dict = request.get_json()
+    print(f'Current Dict: \n{current_dict}')
     for image_id, selected in current_dict.items():
         # Retrieve the existing labels for that image using ES:
         image_info = es.get('images', 'doc', image_id)
@@ -71,6 +76,12 @@ def classify_image():
         image_info['_source']['labels'].append(selected)
         es.index('images', 'doc', image_info['_source'], image_id)
     return "success"
+
+
+@app.route('/images')
+def get_images():
+    images = {image['_id']: image['_source'] for image in scan(es, index='images', doc_type='doc')}
+    return json.dumps(images)
 
 
 # Once the user clicks "Submit", we get these values back,
