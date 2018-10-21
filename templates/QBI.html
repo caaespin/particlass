@@ -13,6 +13,10 @@
         selectPart();
         mobileThings();
 
+        $('#submit').click(function(){
+          console.log('boop');
+          getSelectedParts();
+        });
       };
 
       $(window).resize(function(){
@@ -22,7 +26,7 @@
     <div>
       <nav>
         <a href="www.google.com">Introduction</a>
-        <a href="www.google.com" class="selected">Pick the particle!</a>
+        <a href="www.google.com" class="selectedN">Pick the particle!</a>
         <a href="www.google.com">Sources</a>
       </nav>
     </div>
@@ -30,16 +34,20 @@
       <table cellspacing="0">
         <tbody>
           <tr>
-            {% for i,tuple in Image_list %}
-              {% if i%4==0 and i!=0 %}
-                </tr><tr>
-              {% endif %}
-              <td> <img id='{{ tuple[0] }}' src="data:image/png;base64, {{tuple[1]}}"> </td>
-            {% endfor %}
+            <td>Line 1</td>
+            <td>Line 2</td>
+            <td>Line 3</td>
+            <td>Line 4</td>
           </tr>
+          {% for i,tuple in Image_list %}
+            {% if i%4==0 and i!=0 %}
+              </tr><tr>
+            {% endif %}
+            <td> <img id='{{ tuple[0] }}' src="data:image/png;base64, {{tuple[1]}}"> </td>
+          {% endfor %}
         </tbody>
       </table>
-      <button>Choose more samples!</button>
+      <button id="submit">Choose more samples!</button>
     </section>
     <section id="main">
       <section id="activeContent" class="content">
