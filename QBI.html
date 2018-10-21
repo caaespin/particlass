@@ -7,12 +7,14 @@
   </head>
   <body>
     <div>
-      <nav> <a href="www.google.com">Introduction</a> <a href="www.google.com">Pick
-          the particle!</a> <a href="www.google.com">Sources</a> </nav>
+      <nav>
+        <a href="www.google.com">Introduction</a>
+        <a href="www.google.com" class="selected">Pick the particle!</a>
+        <a href="www.google.com">Sources</a>
+      </nav>
     </div>
-    <div>
-
-      <table class="grid">
+    <section class="grid">
+      <table cellspacing="0">
         <tbody>
           <tr>
             <td>Line 1</td>
@@ -47,31 +49,40 @@
         </tbody>
       </table>
       <button>Choose more samples!</button>
+    </section>
       <section class="content">
         <div class="content__box">
-          <img src="assets/templateEx.png">
-          <p class="instruction"> pick the particle that matches this template </p>
-          <h3 class="score">Number of chosen samples</h3>
-          <h2 class="scoreVal">3</h2>
+          <div class="templateImg">
+            <img src="assets/templateEx.png">
+          </div>
+          <div class="templateInfo">
+            <p class="instruction"> Pick the particle that matches this template </p>
+            <h3 class="score">Number of chosen samples</h3>
+            <h2 class="scoreVal">3</h2>
+          </div>
         </div><!--
         --><div class="content__box">
-          <img src="assets/templateEx.png">
-          <p class="instruction"> Your template accuracy: </p>
-          <h3 class="score">Accuracy</h3>
-          <h2 class="scoreVal">58%</h2>
+          <div class="templateImg">
+            <img src="assets/templateEx.png">
+          </div>
+          <div class="templateInfo">
+            <p class="instruction"> Your average template</p>
+            <h3 class="score">Accuracy</h3>
+            <h2 class="scoreVal">58%</h2>
+          </div>
         </div>
         <div class="projectInfo"> 
-          <p class="label">Project</p>
-          <h4 class="name title">cryo-EM 13423</h4>
-          <p class="label">Biologist</p>
+          <div class="infoBlock">
+            <p class="label">Project</p>
+            <h4 class="name title">cryo-EM 13423</h4>
+          </div><!--
+          --><div class="infoBlock">
+            <p class="label">Biologist</p>
           <h4 class="name author">John Doe</h4>
+          </div>
           <p>This project was created to..... Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. rit in vulputate velit esse molestie con</p>
         </div>
-        <a href="">Learn more...</a>
+        <a href="" class="learnMore">Learn more...</a>
       </section>
-    </div>
-    <div> 
-      
-    <footer>  </footer>
   </body>
 </html>
