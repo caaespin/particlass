@@ -3,9 +3,14 @@
   <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <title>QBI Hackathon</title>
+    <script src="assets/jquery-3.3.1.min.js"></script>
+    <script src="scripts.js"></script>
     <link rel="stylesheet" type="text/css" href="styles/main.css">
   </head>
   <body>
+    <script type="text/javascript">
+      window.onload = selectPart;
+    </script>
     <div>
       <nav>
         <a href="www.google.com">Introduction</a>
@@ -23,15 +28,9 @@
             <td>Line 4</td>
           </tr>
           <tr>
-            <td> Image 1-16</td>
+            <td><img src="assets/square.png"></td>
             <td> Image 1-16</td>
             <td>Image 1-16</td>
-            <td> Image 1-16</td>
-          </tr>
-          <tr>
-            <td>Image 1-16</td>
-            <td>Image 1-16</td>
-            <td> Image 1-16</td>
             <td> Image 1-16</td>
           </tr>
           <tr>
@@ -52,21 +51,21 @@
     </section>
       <section class="content">
         <div class="content__box">
+            <p class="instruction"><img src="assets/arrow.svg" class="arrow"> Pick the particle that matches this template </p>
           <div class="templateImg">
             <img src="assets/templateEx.png">
           </div>
           <div class="templateInfo">
-            <p class="instruction"> Pick the particle that matches this template </p>
-            <h3 class="score">Number of chosen samples</h3>
+            <h3 class="score"># of samples</h3>
             <h2 class="scoreVal">3</h2>
           </div>
         </div><!--
         --><div class="content__box">
+            <p class="instruction"><img src="assets/arrow.svg" class="arrow"> Your average template</p>
           <div class="templateImg">
             <img src="assets/templateEx.png">
           </div>
           <div class="templateInfo">
-            <p class="instruction"> Your average template</p>
             <h3 class="score">Accuracy</h3>
             <h2 class="scoreVal">58%</h2>
           </div>
