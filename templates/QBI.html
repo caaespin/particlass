@@ -25,26 +25,21 @@
     </script>
     <div>
       <nav>
-        <a href="www.google.com">Introduction</a>
-        <a href="www.google.com" class="selectedN">Pick the particle!</a>
-        <a href="www.google.com">Sources</a>
+        <a href="">Introduction</a>
+        <a href="" class="selectedN">Pick the particle!</a>
+        <a href="https://github.com/caaespin/particlass" target="_blank">Sources</a>
       </nav>
     </div>
     <section class="grid">
       <table cellspacing="0">
         <tbody>
-          <tr>
-            <td>Line 1</td>
-            <td>Line 2</td>
-            <td>Line 3</td>
-            <td>Line 4</td>
-          </tr>
-          {% for i,tuple in Image_list %}
-            {% if i%4==0 and i!=0 %}
-              </tr><tr>
-            {% endif %}
-            <td> <img id='{{ tuple[0] }}' src="data:image/png;base64, {{tuple[1]}}"> </td>
-          {% endfor %}
+        </tr>
+        {% for i,tuple in Image_list %}
+          {% if i%4==0 and i!=0 %}
+            </tr><tr>
+          {% endif %}
+          <td> <img id='{{ tuple[0] }}' src="data:image/png;base64, {{tuple[1]}}"> </td>
+        {% endfor %}
         </tbody>
       </table>
       <button id="submit">Choose more samples!</button>
@@ -90,13 +85,13 @@
         <div class="projectInfo">
           <div class="infoBlock">
             <p class="label">Project</p>
-            <h4 class="name title">cryo-EM 13423</h4>
+            <h4 class="name title">GroEL</h4>
           </div><!--
           --><div class="infoBlock">
             <p class="label">Biologist</p>
           <h4 class="name author">John Doe</h4>
           </div>
-          <p>This project was created to..... Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. rit in vulputate velit esse molestie con</p>
+          <p>This project was created to highlight the power of crowdsourcing to augment supervised learning. Here, we have chosen 2D classification of CryoEM particles as an example. Users are expected to...</p>
         <a href="" class="learnMore">Learn more...</a>
         </div>
       </section>
